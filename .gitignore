@@ -3,6 +3,8 @@
 *.log
 *.out
 *.toc
+*.lot
+*.lof
 *.nav
 *.snm
 *.vrb
@@ -22,6 +24,12 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 
+# Java et C (fichiers compilés ; les tests fournis sans sources sont conservés)
+*.class
+!3eme_annee/ITI_aventure/ITI_Aventure/classestest_prof_avec_monstre/**/*.class
+*.o
+3eme_annee/Smart_Robot/programmes/tests/TuType
+
 # Node.js
 node_modules/
 
@@ -38,6 +46,8 @@ node_modules/
 
 # Système et éditeurs
 .DS_Store
+.Rhistory
+.nfs*
 Thumbs.db
 .vscode/
 .idea/
