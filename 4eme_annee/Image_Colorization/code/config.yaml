@@ -1,0 +1,61 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# Configuration pour l'entraînement du GAN de colorisation d'images
+# ═══════════════════════════════════════════════════════════════════════════
+
+# ── Chemins des données ────────────────────────────────────────────────────
+data:
+  train_dir: "/home/LOGIN/data/train"
+  val_dir: "/home/LOGIN/data/val"
+  test_dir: "/home/LOGIN/data/test"
+
+# ── Hyperparamètres d'entraînement ─────────────────────────────────────────
+training:
+  num_epochs: 1
+  batch_size: 32
+  num_workers: 8  # Nombre de workers pour le DataLoader
+  
+  # Optimiseur
+  lr: 0.0002  # Learning rate
+  lr_D: 0.00002
+  lr_G: 0.0002
+  beta1: 0.5  # Beta1 pour Adam
+  beta2: 0.999  # Beta2 pour Adam
+  
+  # Loss
+  lambda_l1: 100  # Poids de la L1 loss dans la loss du générateur
+  lambda_vgg: 10.0
+  
+  # Scheduler
+  scheduler:
+    enabled: true
+    mode: "min"  # Réduire le LR quand la métrique n'améliore plus
+    factor: 0.1  # Diviser le LR par 10
+    patience: 5  # Attendre 5 epochs sans amélioration
+
+# ── Checkpoints et logging ─────────────────────────────────────────────────
+checkpointing:
+  checkpoint_dir: "checkpoints"
+  save_best_only: true  # Sauvegarder uniquement le meilleur modèle
+  metric: "val_loss_G"  # Métrique pour déterminer le meilleur modèle
+  mode: "min"  # "min" pour loss, "max" pour accuracy
+  
+logging:
+  log_dir: "runs"
+  log_every_n_steps: 10  # Logger toutes les N itérations
+  save_images: true  # Sauvegarder des exemples de validation
+  num_images_to_save: 10  # Nombre d'images à sauvegarder
+
+# ── Validation ─────────────────────────────────────────────────────────────
+validation:
+  validate_every_n_epochs: 1  # Valider tous les N epochs
+  
+# ── Modèle ─────────────────────────────────────────────────────────────────
+model:
+  generator:
+    name: "UNet"
+  discriminator:
+    name: "PatchGAN"
+
+# ── Divers ─────────────────────────────────────────────────────────────────
+seed: 42  # Pour la reproductibilité
+device: "cuda"  # "cuda" ou "cpu"
