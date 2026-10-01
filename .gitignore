@@ -1,0 +1,43 @@
+# Fichiers générés par LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.nav
+*.snm
+*.vrb
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*-blx.bib
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Node.js
+node_modules/
+
+# Certificats locaux (mkcert)
+*.pem
+
+# Données, poids de modèles et journaux d'entraînement
+4eme_annee/Image_Colorization/code/data/
+4eme_annee/Image_Colorization/code/checkpoints/
+4eme_annee/Image_Colorization/code/runs/
+*.pt
+*.pth
+*.npy
+
+# Système et éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
