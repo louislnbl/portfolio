@@ -1,0 +1,256 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\graphicspath{{img/}}
+\setbeamertemplate{footline}[frame number]
+\lstset{
+    basicstyle=\ttfamily\footnotesize, % Change this to \small, \normalsize, \large, etc.
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    showstringspaces=false
+}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+\title{Séparation de sources sonores par factorisation matricielle non-négative}
+\subtitle{Projet Intégratif AutoDecomposer}
+\author{Hamza FADILI, Raphaël ROGER, Jack SU, Michel VESPIER}
+\date{18 Décembre 2024}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Présentation de la problématique}
+    \begin{itemize}
+        \item Séparer les diverses composantes d'un signal musical à partir d'un enregistrement.
+        \item Nécessité d'une méthode robuste et automatisée pour la décomposition.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Présentation générale de la méthode}
+    \begin{itemize}
+        \item Transformation du signal audio en spectrogramme à l'aide de la Transformée de Fourier.
+        \item Un spectrogramme est une représentation visuelle des fréquences présentes dans un signal au fil du temps :
+        \begin{itemize}
+            \item Axe des $x$ : temps.
+            \item Axe des $y$ : fréquences.
+            \item Intensité des couleurs : amplitude des fréquences.
+        \end{itemize}
+        \item Décomposition matricielle du spectrogramme par la factorisation NMF
+        \item Reconstruction des sources sonores à partir des matrices factorisées.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Pourquoi choisir la NMF ?}
+    \begin{itemize}
+        \item La NMF (Non-negative Matrix Factorization) est particulièrement adaptée pour des tâches avec lesquelles les données sont intrinsèquement non-négatives, comme les spectrogrammes ou les images.
+        \item Comparée à d'autres méthodes de factorisation matricielle (comme la SVD), la NMF a l'avantage de produire des représentations plus interprétables.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Principe de la NMF}
+    \begin{itemize}
+        \item La NMF décompose une matrice $V \in \mathbb{R}^{n \times p}_+$ en deux matrices $W \in \mathbb{R}^{n \times r}_+$ et $H \in \mathbb{R}^{r \times p}_+$ avec $r \in \mathbb{N}$ telles que $V \approx WH$ :
+        \begin{itemize}
+            \item{\makebox[0.4cm]{$V$\hfill} : matrice de données.}
+            \item{\makebox[0.4cm]{$W$\hfill} : matrice des motifs.}
+            \item{\makebox[0.4cm]{$H$\hfill} : matrice des activations temporelles.}
+            \item{\makebox[0.4cm]{$r$\hfill} : le rang de la factorisation}
+        \end{itemize}
+        \item Considérations importantes :
+        \begin{itemize}
+            \item Toutes les valeurs dans $V$, $W$, et $H$ doivent être non-négatives.
+            \item Le choix du rang de la factorisation : $r << min(n,p)$
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Algorithme des mises à jour multiplicatives (1/3)}
+    \begin{itemize}
+        \item Étant donné qu'on réalise une décomposition approchée, on va chercher à minimiser le critère d'erreur tout en conservant la non-négativité des matrices $W$ et $H$.
+            \[\displaystyle \underset{W \ge 0,\ H \ge 0}{\mathrm{min}} \ ||V - WH||_{F}\]
+        où $||\cdot||_F$ est la norme de Frobenius.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Algorithme des mises à jour multiplicatives (2/3)}
+    \begin{itemize}
+        \item \textbf{Mise à jour de $W$} : 
+        \[
+        W \leftarrow W \odot \frac{VH^T}{WHH^T}
+        \]
+        où $\odot$ désigne la multiplication élément par élément.
+        \item \textbf{Mise à jour de $H$} : 
+        \[
+        H \leftarrow H \odot \frac{W^TV}{W^TWH}
+        \]
+        \item \textbf{Répétition des étapes} : Ces mises à jour sont itérées jusqu'à convergence, où les matrices $W$ et $H$ n'évoluent plus de manière significative.
+    \end{itemize}
+\end{frame}
+
+        
+\begin{frame}{Algorithme des mises à jour multiplicatives (3/3)}
+    \begin{itemize}
+        \item \textbf{Avantages} :
+        \begin{itemize}
+            \item Convergence garantie vers un point fixe.
+            \item Une bonne initialisation de $W^{(0)}$ et $H^{(0)}$ accélère la convergence et permet d'atteindre un meilleur point fixe.
+        \end{itemize}
+        \item \textbf{Inconvénients} :
+        \begin{itemize}
+            \item Le point fixe peut être un minimum local.
+            \item Des centaines à des milliers d'itérations peuvent être nécessaires pour atteindre la convergence.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Implémentation}
+    \begin{itemize}
+        \item Outils utilisés : Python (NumPy, Librosa, Matplotlib).
+        \item Conversion des fichiers audio en spectrogrammes.
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.5\textwidth]{img/spec_input.png}
+            \caption{Spectrogramme du signal piano\_mix}
+        \end{figure}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Résultats expérimentaux}
+    \begin{itemize}
+        \item Reconstruction des signaux avec différentes initialisations :
+        \begin{itemize}
+            \item Initialisation aléatoire : convergence lente.
+            \item Initialisation par SVD : reconstruction plus précise mais convergence assez lente.
+            \item Initialisation par NICA : reconstruction précise et convergence rapide.
+        \end{itemize}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.5\textwidth]{img/conv_erreur.png}
+            \caption{Rapidité de convergence des initialisations de la NMF}
+        \end{figure}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Visualisation des résultats (1/4)}
+    \begin{columns}[T] % Alignement des colonnes en haut
+        % Colonne gauche : Matrice W
+        \begin{column}{0.28\textwidth}
+            \centering
+            \vspace{1cm}
+            \includegraphics[width=\textwidth]{img/W.png}
+            \vspace{0.2cm}
+            Matrice $W$
+        \end{column}
+
+        % Colonne droite : Matrice H et Reconstruction WH
+        \begin{column}{0.8\textwidth}
+            \centering
+            % Matrice H
+            \vspace{-0.8cm}
+            Matrice $H$
+            \includegraphics[width=0.8\textwidth]{img/H.png}
+            \vspace{0.2cm}
+
+            % Reconstruction W@H
+            \includegraphics[width=0.9\textwidth]{img/spec_output.png}
+            \vspace{0.2cm}
+            \textit{Reconstruction $W@H$}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Visualisation des résultats (2/4)}
+    \begin{itemize}
+        \item Spectrogramme original vs reconstruit :
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.45\textwidth]{img/spec_input.png}
+        \includegraphics[width=0.46\textwidth]{img/spec_output.png}
+        \caption{Spectrogramme initial (gauche) et reconstruit (droite).}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Visualisation des résultats (3/4)}
+    \begin{itemize}
+        \item Signaux audios des sources décomposées : 
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.4\textwidth]{img/comp1.png}
+        \includegraphics[width=0.4\textwidth]{img/comp2.png}
+        \includegraphics[width=0.4\textwidth]{img/comp3.png}
+        \includegraphics[width=0.4\textwidth]{img/comp4.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Visualisation des résultats (4/4)}
+    \begin{itemize}
+        \item Signal original vs reconstruit :
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.65\textwidth]{img/signal_reconstruit.png}
+    \end{figure}
+\end{frame}
+        
+
+\begin{frame}{Limites rencontrées}
+    \begin{itemize}
+        \item Sensibilité au bruit et au choix des paramètres (nombre de sources).
+        \item Difficultés dans la séparation des sources ayant des spectres similaires.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Choix du nombre de sources}
+    \begin{itemize}
+        \item Approche basée sur les pics de fréquence :
+        \begin{itemize}
+            \item Identifier les pics dominants dans le spectrogramme.
+            \item Utiliser leur nombre comme estimation initiale pour les composantes latentes.
+        \end{itemize}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.58\textwidth]{img/calc_rang.png}
+            \caption{Calcul du nombre de sources pour le signal piano\_mix}
+        \end{figure}
+        \item Limite : cette méthode peut être influencée par le bruit et les harmoniques.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Axes d'amélioration}
+    \begin{itemize}
+        \item Utiliser d'autres méthodes pour obtenir le nombre de sources optimal à prélever (SVD).
+        \item Implémenter les initialisations de la NMF sans utiliser de bibliothèques Python.
+    \end{itemize}
+\end{frame}
+
+% Slide 12 : Conclusion
+\begin{frame}{Conclusion}
+    \begin{itemize}
+        \item Notre implémentation de la NMF pour séparer des sources sonores s'avère être efficace.
+        \item À noter que le choix des hyperparamètres et l'initialisation et le nombre de composantes sont des points sensibles.
+        \item Perspectives : généraliser la méthode à d'autres signaux et intégrer des approches hybrides pour améliorer la robustesse.
+    \end{itemize}
+\end{frame}
+
+\end{document}
+
