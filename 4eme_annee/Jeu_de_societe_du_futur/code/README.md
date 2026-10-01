@@ -10,7 +10,7 @@ Il utilise `npm` pour la partie JavaScript et `pipenv` pour la gestion des dépe
 1. **Clone le portfolio et place-toi dans le dossier du code :**
 
    ```
-   git clone https://github.com/louis-lnbl/portfolio.git
+   git clone https://github.com/louislnbl/portfolio.git
    cd portfolio/4eme_annee/Jeu_de_societe_du_futur/code
 
    ```
