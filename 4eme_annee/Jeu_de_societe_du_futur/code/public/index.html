@@ -1,0 +1,83 @@
+<!--
+  index.html
+
+  Page principale du projet Webcam → Node → Python.
+  Affiche la vidéo de la webcam et l'image traitée par le backend Python.
+  Inclut les scripts nécessaires pour la communication en temps réel.
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Brain Strom</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Socket.IO pour la communication temps réel -->
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div id="main">
+    <h1>Brain Strom</h1>
+    <div id="forms">
+      <div id="create-lobby-form">
+        <h2>Créer un lobby</h2>
+        <input type="text" id="create-player-name" placeholder="Votre nom">
+        <button id="create-lobby-btn">Créer</button>
+      </div>
+      <div id="join-lobby-form">
+        <h2>Rejoindre un lobby</h2>
+        <input type="text" id="join-player-name" placeholder="Votre nom">
+        <input type="text" id="join-lobby-id" placeholder="Code du lobby">
+        <button id="join-lobby-btn">Rejoindre</button>
+      </div>
+    </div>
+    <div id="info">
+      <div class="info-buttons">
+        <a href="/resources/assets.zip" download="brainstrom-assets.zip" style="color: white;">Télécharger les ressources</a>
+        <button id="rules-btn" class="btn">Règles du jeu</button>
+      </div>
+    </div>
+    <div id="rules-modal" style="display:none;">
+      <div class="modal-content">
+        <span id="close-rules-btn" class="close-btn">&times;</span>
+        <h2>Règles du jeu "Brain Strom"</h2>
+        <p><strong>Objectif :</strong> Être le premier à arriver au centre du plateau !</p>
+        <h3>Déroulement :</h3>
+        <ol>
+            <li>Le propriétaire du lobby lance la partie.</li>
+            <li>Le propriétaire scanne tous les codes ArUco disponibles sur le plateau de jeu.</li>
+            <li>Les codes sont répartis aléatoirement entre les joueurs.</li>
+            <li>Chaque joueur voit uniquement ses pions.</li>
+            <li>Chacun leur tour, les joueurs lancent un dé numéroté de 1 à 3 et déplacent leurs pions ou ceux des autres. Exemple: avec 3, un joueur peut déplacer n'importe quel pion de 3 cases ou 3 pions d'une case.</li>
+        </ol>
+      </div>
+    </div>
+    <div id="lobby" style="display:none;">
+      <h2>Lobby <span id="lobby-id"></span></h2>
+      <ul id="players-list"></ul>
+      <button id="leave-lobby-btn">Quitter le lobby</button>
+      <button id="start-game-btn" style="display:none;">Démarrer la partie</button>
+    </div>
+    <div id="game" style="display:none;">
+      <h2 id="game-announce" style="display:none;">La partie a commencé !</h2>
+      <video id="video" style="display:none;" autoplay></video>
+      <!-- Conteneur relatif qui contient l'image traitée et la superposition WebGL/Three.js -->
+      <div id="processed-wrapper" style="position:relative; display:inline-block;">
+        <img id="processed" alt="Image traitée" style="display:block; max-width:100%; height:auto;">
+        <!-- Conteneur pour le rendu AR (Three.js). On le positionne en absolute pour superposer l'image. -->
+        <div id="ar-overlay" style="position:absolute; left:0; top:0; pointer-events:none;"></div>
+      </div>
+      <!-- <button id="detect-codes-btn" style="display:none">Détecter les codes</button> -->
+       <div id="detected-codes" style="display:none;">
+        <p>Nombre de codes détectés : <span id="detected-codes-count">0</span></p>
+        <button id="delete-code-btn">Supprimer le dernier code détecté</button>
+        <ul id="detected-codes-list", title="Codes detectés">
+        </ul>
+       </div>
+      <button id="reshuffle-codes-btn" style="display:none;">Invoquer Exodia</button>
+    </div>
+    <div id="error-message" style="display:none;"></div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

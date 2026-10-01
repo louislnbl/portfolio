@@ -1,0 +1,502 @@
+/* style.css - Design moderne et dynamique pour le jeu de société */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #FF6B35;
+    --secondary: #F7931E;
+    --accent: #FBB03B;
+    --purple: #9B59B6;
+    --blue: #3498DB;
+    --success: #2ECC71;
+    --dark: #2C3E50;
+    --light: #ECF0F1;
+    --white: #FFFFFF;
+    --danger: #E74C3C;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    color: var(--dark);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Animations de fond */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Formes animées en arrière-plan */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+    animation: float 6s ease-in-out infinite;
+}
+
+body::after {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    right: -50px;
+    animation: float 8s ease-in-out infinite 1s;
+}
+
+/* Container principal */
+#main {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Titres */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.8s ease-out;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Section des formulaires */
+#forms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    animation: fadeIn 1s ease-out;
+}
+
+#create-lobby-form,
+#join-lobby-form {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#create-lobby-form::before,
+#join-lobby-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+#create-lobby-form:hover,
+#join-lobby-form:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+}
+
+#create-lobby-form:hover::before,
+#join-lobby-form:hover::before {
+    transform: scaleX(1);
+}
+
+/* Inputs */
+input[type="text"] {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--light);
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    color: var(--dark);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.2);
+    transform: translateY(-2px);
+}
+
+input[type="text"]::placeholder {
+    color: #95a5a6;
+}
+
+/* Boutons */
+button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
+    transform: translate(-50%, -50%);
+}
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+#leave-lobby-btn {
+    background: linear-gradient(135deg, var(--danger), #c0392b);
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
+    margin-top: 1rem;
+}
+
+#leave-lobby-btn:hover {
+    box-shadow: 0 15px 40px rgba(231, 76, 60, 0.6);
+}
+
+#start-game-btn {
+    background: linear-gradient(135deg, var(--success), #27ae60);
+    box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
+    margin-top: 1rem;
+}
+
+#start-game-btn:hover {
+    box-shadow: 0 15px 40px rgba(46, 204, 113, 0.6);
+}
+
+#detect-codes-btn {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.4);
+    margin-top: 2rem;
+}
+
+/* Section Lobby */
+#lobby {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease-out;
+}
+
+#lobby-id {
+    color: var(--primary);
+    font-weight: 900;
+    font-size: 2rem;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 15px;
+    margin-left: 1rem;
+}
+
+/* Liste des joueurs */
+#players-list {
+    list-style: none;
+    margin: 2rem 0;
+    display: grid;
+    gap: 1rem;
+}
+
+#players-list li {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark);
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--accent);
+}
+
+#players-list li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#lobby-status {
+    background: rgba(52, 152, 219, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--blue);
+    border: 2px solid rgba(52, 152, 219, 0.3);
+}
+
+/* Section Jeu */
+#game {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out;
+    text-align: center;
+}
+
+#game-announce {
+    color: var(--success);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Vidéo et image traitée */
+#video,
+#processed {
+    width: 100%;
+    max-width: 640px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    display: block;
+}
+
+#processed {
+    margin-top: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 480px;
+    object-fit: cover;
+}
+
+/* Messages d'erreur */
+#error-message {
+    background: rgba(231, 76, 60, 0.95);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
+    display: none;
+    animation: slideDown 0.5s ease-out;
+}
+
+#error-message:not(:empty) {
+    display: block;
+}
+
+/* Modal Rules */
+#rules-modal {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 1200px;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  color: #aaa;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+.modal-content ol {
+  padding-left: 20px;
+}
+
+.modal-content li {
+  margin-bottom: 0.5rem;
+}
+
+.info-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.info-buttons .btn {
+  width: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    #forms {
+        grid-template-columns: 1fr;
+    }
+
+    #main {
+        padding: 2rem 1rem;
+    }
+
+    #create-lobby-form,
+    #join-lobby-form,
+    #lobby,
+    #game {
+        padding: 2rem;
+    }
+
+    #processed {
+        min-height: 300px;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
+/* États cachés */
+[style*="display:none"],
+[style*="display: none"] {
+    animation: none !important;
+}
+
+/* Animations pour l'apparition des sections */
+#lobby[style*="display:block"],
+#game[style*="display:block"] {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Effet de chargement */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
