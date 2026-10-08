@@ -28,7 +28,7 @@ Le projet sur lequel nous avons travaillé, le jeu **ITI aventure**, visait à r
 
 ---
 
-> *Année universitaire : 2024 – 2025*  
+> *Année universitaire : 2024 - 2025*  
 > *Auteur : LENOBLE Louis*  
-> *ITI3 – Première Année de spécialisation*
+> *ITI3 - Première Année de spécialisation*
 

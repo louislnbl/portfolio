@@ -1,6 +1,6 @@
-# Portfolio — LENOBLE Louis
+# Portfolio - LENOBLE Louis
 
-**Élève ingénieur en dernière année à l’INSA Rouen Normandie — Intelligence artificielle et vision par ordinateur**
+**Élève ingénieur en dernière année à l’INSA Rouen Normandie | Intelligence artificielle et vision par ordinateur**
 
 Bienvenue ! Vous trouverez ici l’ensemble des projets auxquels j’ai pu participer tout au long de ma formation à l’INSA Rouen Normandie : du robot qui sort seul d’un labyrinthe au réseau de neurones qui redonne ses couleurs à une photo en noir et blanc.
 
@@ -22,20 +22,20 @@ Ce qui me motive : comprendre une méthode en profondeur, l’implémenter moi-m
 
 ## Mon parcours
 
-- **2026 – Échange académique à POSTECH** (*Pohang University of Science and Technology*, Corée du Sud)  
+- **2026 : Échange académique à POSTECH** (*Pohang University of Science and Technology*, Corée du Sud)  
   Cours suivis en anglais : Machine Learning, Introduction to Computer Vision, Computational Imaging, Natural Language Processing.
 
-- **2022 – 2027 – Diplôme d’ingénieur, INSA Rouen Normandie**  
+- **2022 - 2027 : Diplôme d’ingénieur, INSA Rouen Normandie**  
   Département Informatique et Technologies de l’Information : machine learning, deep learning, traitement d’images, traitement du signal, recherche opérationnelle, génie logiciel, bases de données.
 
-- **2022 – Baccalauréat général, mention Très Bien, section européenne**  
+- **2022 : Baccalauréat général, mention Très Bien, section européenne**  
   Lycée Thomas Corneille, Barentin.
 
 ---
 
 ## Mes expériences
 
-### 🔬 Stage de recherche en deep learning — LITIS (mai – juillet 2026)
+### 🔬 Stage de recherche en deep learning au LITIS (mai à juillet 2026)
 
 Trois mois au sein de l’équipe Document du laboratoire, dans le cadre du projet FINLAM mené avec TEKLIA et la Bibliothèque nationale de France.
 
@@ -43,7 +43,7 @@ Trois mois au sein de l’équipe Document du laboratoire, dans le cadre du proj
 - **Ma contribution** : un module générique d’annotation automatique par distillation, la comparaison de trois modèles professeurs (CamemBERT, GLiNER et un LLM auto-hébergé), puis l’annotation de **23 939 documents** sur 18 types d’entités.
 - **Résultat** : un modèle entraîné sur le supercalculateur du CRIANN atteignant un **F1 de 0,69** et un taux d’erreur par caractère de **4,3 %** sur le jeu de test. Preuve de concept validée.
 
-### 🏎️ Projet INSA Certifié pour un client industriel (janvier – mai 2026)
+### 🏎️ Projet INSA Certifié pour un client industriel (janvier à mai 2026)
 
 Cinq mois en équipe de neuf pour la société Aladin : prédiction et planification de trajectoire pour une **voiture de course autonome** (compétition A2RL).
 
@@ -59,13 +59,13 @@ Le code de ces deux expériences appartient au laboratoire et au client : il n�
 
 | Année | Projet | Domaine | Technologies |
 | :--- | :--- | :--- | :--- |
-| 4ᵉ | [Image Colorization](./4eme_annee/Image_Colorization) | Deep learning — coloriser des images en noir et blanc avec un GAN | Python, PyTorch, Slurm |
-| 4ᵉ | [SIFT](./4eme_annee/SIFT) | Traitement d’image — implémenter SIFT et l’appliquer (panorama, détection d’objet) | Python, OpenCV, NumPy |
-| 4ᵉ | [Jeu de société du futur](./4eme_annee/Jeu_de_societe_du_futur) | Web temps réel et vision — un jeu de plateau lu par la caméra du téléphone | Node.js, Socket.IO, Flask, OpenCV |
-| 3ᵉ | [ITInéraire](./3eme_annee/ITI_neraire) | Capteurs — améliorer la géolocalisation par fusion GNSS / centrale inertielle | Python |
-| 3ᵉ | [Auto décomposeur audio](./3eme_annee/Auto_decomposeur_audio) | Traitement du signal — séparer les sources d’un enregistrement audio | Python, NumPy, SciPy, Librosa |
-| 3ᵉ | [Smart Robot](./3eme_annee/Smart_Robot) | Algorithmique et électronique — un robot qui résout un labyrinthe | C, Doxygen |
-| 3ᵉ | [ITI Aventure](./3eme_annee/ITI_aventure) | Génie logiciel — jeu orienté objet avec base de données et interpréteur | Java, JDBC, JavaCC |
+| 4ᵉ | [Image Colorization](./4eme_annee/Image_Colorization) | Deep learning : coloriser des images en noir et blanc avec un GAN | Python, PyTorch, Slurm |
+| 4ᵉ | [SIFT](./4eme_annee/SIFT) | Traitement d’image : implémenter SIFT et l’appliquer (panorama, détection d’objet) | Python, OpenCV, NumPy |
+| 4ᵉ | [Jeu de société du futur](./4eme_annee/Jeu_de_societe_du_futur) | Web temps réel et vision : un jeu de plateau lu par la caméra du téléphone | Node.js, Socket.IO, Flask, OpenCV |
+| 3ᵉ | [ITInéraire](./3eme_annee/ITI_neraire) | Capteurs : améliorer la géolocalisation par fusion GNSS / centrale inertielle | Python |
+| 3ᵉ | [Auto décomposeur audio](./3eme_annee/Auto_decomposeur_audio) | Traitement du signal : séparer les sources d’un enregistrement audio | Python, NumPy, SciPy, Librosa |
+| 3ᵉ | [Smart Robot](./3eme_annee/Smart_Robot) | Algorithmique et électronique : un robot qui résout un labyrinthe | C, Doxygen |
+| 3ᵉ | [ITI Aventure](./3eme_annee/ITI_aventure) | Génie logiciel : jeu orienté objet avec base de données et interpréteur | Java, JDBC, JavaCC |
 
 Chaque dossier contient un README présentant le but du projet et les compétences développées, ainsi que le code et le rapport.
 
@@ -73,8 +73,8 @@ Chaque dossier contient un README présentant le but du projet et les compétenc
 
 ## Mes compétences
 
-- **Langages** : Python, C, Java, JavaScript, SQL — et C++ en cours d’apprentissage.
-- **IA et données** : PyTorch, scikit-learn, NumPy, SciPy ; réseaux convolutifs, GAN, LSTM, Transformers, distillation.
+- **Langages** : Python, C, Java, JavaScript, SQL, et C++ en cours d’apprentissage.
+- **IA et données** : PyTorch, scikit-learn, NumPy, SciPy | réseaux convolutifs, GAN, LSTM, Transformers, distillation.
 - **Image et signal** : OpenCV, MediaPipe, SIFT, analyse de Fourier, NMF, fusion de capteurs, filtre de Kalman.
 - **Outils** : Git / GitLab CI, Linux, Slurm (calcul sur GPU), ROS 2, pytest, TensorBoard, LaTeX.
 - **Langues** : anglais B2 (TOEIC 865, semestre d’études en anglais), espagnol B2.
@@ -83,9 +83,9 @@ Chaque dossier contient un README présentant le but du projet et les compétenc
 
 ## Sommaire
 
-- [`/4eme_annee`](./4eme_annee) — Projets de ma deuxième année de spécialisation (2025 – 2026) : deep learning, traitement d’image, développement web.
-- [`/3eme_annee`](./3eme_annee) — Projets de ma première année de spécialisation (2024 – 2025) : algorithmique, traitement du signal, capteurs, programmation orientée objet.
-- [`CV_LENOBLE_Louis.pdf`](./CV_LENOBLE_Louis.pdf) — Mon CV.
+- [`/4eme_annee`](./4eme_annee) : Projets de ma deuxième année de spécialisation (2025 - 2026), en deep learning, traitement d’image et développement web.
+- [`/3eme_annee`](./3eme_annee) : Projets de ma première année de spécialisation (2024 - 2025), en algorithmique, traitement du signal, capteurs et programmation orientée objet.
+- [`CV_LENOBLE_Louis.pdf`](./CV_LENOBLE_Louis.pdf) : Mon CV.
 
 ---
 
@@ -96,4 +96,4 @@ Une opportunité de stage, une question sur un projet ? Écrivez-moi : **louis.l
 ---
 
 > *Auteur : LENOBLE Louis*  
-> *INSA Rouen Normandie – Département Informatique et Technologies de l’Information*
+> *INSA Rouen Normandie - Département Informatique et Technologies de l’Information*

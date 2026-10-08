@@ -31,13 +31,13 @@ Les entraînements ont été réalisés sur le supercalculateur **Arctic** du CR
 
 ## Contenu du dossier
 
-- [`/code`](./code) — Code du projet (modèles, jeu de données, entraînement, évaluation). La présentation détaillée et le mode d’emploi sur Arctic se trouvent dans [`code/README.md`](./code/README.md).
-- [`/presentation`](./presentation) — Support de présentation (sources LaTeX et PDF).
+- [`/code`](./code) : Code du projet (modèles, jeu de données, entraînement, évaluation). La présentation détaillée et le mode d’emploi sur Arctic se trouvent dans [`code/README.md`](./code/README.md).
+- [`/presentation`](./presentation) : Support de présentation (sources LaTeX et PDF).
 
 Les données (dataset Flowers de Kaggle) et les poids des modèles entraînés ne sont pas versionnés.
 
 ---
 
-> *Année universitaire : 2025 – 2026*  
+> *Année universitaire : 2025 - 2026*  
 > *Auteur : LENOBLE Louis*  
-> *ITI4 – Deuxième Année de spécialisation*
+> *ITI4 - Deuxième Année de spécialisation*

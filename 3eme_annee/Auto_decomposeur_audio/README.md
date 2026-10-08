@@ -41,6 +41,6 @@ Retrouvez le rapport complet et les analyses détaillées dans le **fichier Jupy
 
 ---
 
-> *Année universitaire : 2024 – 2025*  
+> *Année universitaire : 2024 - 2025*  
 > *Auteur : LENOBLE Louis*  
-> *ITI3 – Première Année de spécialisation*
+> *ITI3 - Première Année de spécialisation*

@@ -31,23 +31,23 @@ L’enjeu était d’étudier la méthode en détail, d’en proposer notre prop
 
 ## Contenu du dossier
 
-- [`/implementation`](./implementation) — Notre implémentation de SIFT, étape par étape, comparée à celle d’OpenCV (Jupyter Notebook).
-- [`/application`](./application) — Applications de SIFT : détection d’objet, panorama, recherche d’images (Jupyter Notebook).
-- [`/rapport`](./rapport) — Sources LaTeX du rapport, dont la version compilée est [`rapport.pdf`](./rapport.pdf).
-- [`/presentation`](./presentation) — Support de présentation (sources LaTeX et PDF).
+- [`/implementation`](./implementation) : Notre implémentation de SIFT, étape par étape, comparée à celle d’OpenCV (Jupyter Notebook).
+- [`/application`](./application) : Applications de SIFT à la détection d’objet, au panorama et à la recherche d’images (Jupyter Notebook).
+- [`/rapport`](./rapport) : Sources LaTeX du rapport, dont la version compilée est [`rapport.pdf`](./rapport.pdf).
+- [`/presentation`](./presentation) : Support de présentation (sources LaTeX et PDF).
 
 ---
 
 ## Références
 
 - D. G. Lowe, *Distinctive Image Features from Scale-Invariant Keypoints*, International Journal of Computer Vision, 2004.
-- [Scale-invariant feature transform — Wikipédia](https://fr.wikipedia.org/wiki/Scale-invariant_feature_transform)
-- [Documentation OpenCV — Introduction to SIFT](https://docs.opencv.org/4.x/da/df5/tutorial_py_sift_intro.html)
-- [PythonSIFT — R. Islam](https://github.com/rmislam/PythonSIFT/blob/master/pysift.py) et l’[article associé](https://medium.com/@russmislam/implementing-sift-in-python-a-complete-guide-part-1-306a99b50aa5)
-- [What is SIFT? — Roboflow](https://blog.roboflow.com/sift/)
+- [Scale-invariant feature transform (Wikipédia)](https://fr.wikipedia.org/wiki/Scale-invariant_feature_transform)
+- [Documentation OpenCV : Introduction to SIFT](https://docs.opencv.org/4.x/da/df5/tutorial_py_sift_intro.html)
+- [PythonSIFT (R. Islam)](https://github.com/rmislam/PythonSIFT/blob/master/pysift.py) et l’[article associé](https://medium.com/@russmislam/implementing-sift-in-python-a-complete-guide-part-1-306a99b50aa5)
+- [What is SIFT? (Roboflow)](https://blog.roboflow.com/sift/)
 
 ---
 
-> *Année universitaire : 2025 – 2026*  
+> *Année universitaire : 2025 - 2026*  
 > *Auteur : LENOBLE Louis*  
-> *ITI4 – Deuxième Année de spécialisation*
+> *ITI4 - Deuxième Année de spécialisation*

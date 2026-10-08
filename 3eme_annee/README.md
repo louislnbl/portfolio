@@ -25,13 +25,13 @@ Ces travaux reflètent à la fois l’apprentissage de nouveaux langages, la ma�
 
 ## Sommaire
 
-- [`/Smart_Robot`](./Smart_Robot) — Résolution et parcours d'un labyrinthe d'un robot (programmé en C)  
-- [`/Auto_decomposeur_audio`](./Auto_decomposeur_audio) — Séparation et lecture de sources audios (programmé en python)  
-- [`/ITI_aventure`](./ITI_aventure) — Programmation orientée objet / Persistance des données / Integration design patern factory / Interpreteur (programmé en Java)
-- [`/ITI_neraire`](./ITI_neraire) — Amélioration de la géolocalisation grâce à un GNSS et IMU (programmé en python)  
+- [`/Smart_Robot`](./Smart_Robot) : Résolution et parcours d'un labyrinthe d'un robot (programmé en C)  
+- [`/Auto_decomposeur_audio`](./Auto_decomposeur_audio) : Séparation et lecture de sources audios (programmé en python)  
+- [`/ITI_aventure`](./ITI_aventure) : Programmation orientée objet / Persistance des données / Integration design patern factory / Interpreteur (programmé en Java)
+- [`/ITI_neraire`](./ITI_neraire) : Amélioration de la géolocalisation grâce à un GNSS et IMU (programmé en python)  
 
 ---
 
-> *Année universitaire : 2024 – 2025*  
+> *Année universitaire : 2024 - 2025*  
 > *Auteur : LENOBLE Louis*  
-> *ITI3 – Première Année de spécialisation*
+> *ITI3 - Première Année de spécialisation*

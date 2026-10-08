@@ -19,13 +19,13 @@ Ces travaux ont pour objectif d'utiliser le socle de connaissance que j'ai pu ac
 
 ## Sommaire
 
-- [`/Jeu_de_societe_du_futur`](./Jeu_de_societe_du_futur) — Application web utilisant la caméra du téléphone pour appliquer un traitement d'image et ainsi pouvoir jouer à un jeu de société.   
-- [`/SIFT`](./SIFT) — Traitement d'image - étude, implémentation et applications de la méthode SIFT.  
-- [`/Image_Colorization`](./Image_Colorization) — Deep learning - colorisation automatique d'images en noir et blanc avec un GAN (programmé en Python avec PyTorch).
+- [`/Jeu_de_societe_du_futur`](./Jeu_de_societe_du_futur) : Application web utilisant la caméra du téléphone pour appliquer un traitement d'image et ainsi pouvoir jouer à un jeu de société.   
+- [`/SIFT`](./SIFT) : Traitement d'image - étude, implémentation et applications de la méthode SIFT.  
+- [`/Image_Colorization`](./Image_Colorization) : Deep learning - colorisation automatique d'images en noir et blanc avec un GAN (programmé en Python avec PyTorch).
   
 ---
 
-> *Année universitaire : 2025 – 2026*  
+> *Année universitaire : 2025 - 2026*  
 > *Auteur : LENOBLE Louis*  
-> *ITI4 – Deuxième Année de spécialisation*
+> *ITI4 - Deuxième Année de spécialisation*
 

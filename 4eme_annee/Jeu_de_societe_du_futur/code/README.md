@@ -1,4 +1,4 @@
-# Brain Strom — installation et lancement
+# Brain Strom : installation et lancement
 
 Ce projet combine un serveur Node.js et un backend Python.  
 Il utilise `npm` pour la partie JavaScript et `pipenv` pour la gestion des dépendances Python.
